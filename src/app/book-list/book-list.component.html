@@ -1,0 +1,26 @@
+<h1>lista de libros</h1>
+
+<h2 *ngIf="ofertaMayor== true">ofertas de invierno (libros resaltados)</h2>
+
+<table class="table table-bordered">
+    <thead class="thead-dark">
+        <tr>
+            <th>imagen</th>
+            <th>tipo</th>
+            <th>titulo</th>
+            <th>autor</th>
+            <th>materia</th>
+            <th>precio</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let book of books" [ngClass]="{'oferta': book.oferta}">
+            <img [src]="book.imagen" [alt]="book.imagen">
+            <td>{{book.tipo}}</td>
+            <td>{{book.titulo}}</td>
+            <td>{{book.autor}}</td>
+            <td>{{book.materia}}</td>
+            <td>{{book.precio | currency}}</td>
+        </tr>
+    </tbody>
+</table>
