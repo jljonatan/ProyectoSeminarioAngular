@@ -8,7 +8,7 @@ import { Book } from './Book';
 })
 export class BookListComponent implements OnInit {
 
-  ofertaMayor = true;
+  ofertaInvierno = true;
 
   books: Book [] = [
 
@@ -20,6 +20,7 @@ export class BookListComponent implements OnInit {
       materia: 'Web1',
       precio: 50,
       oferta: true,
+      cantidad: 0,
     },
 
     {
@@ -30,6 +31,7 @@ export class BookListComponent implements OnInit {
       materia: 'Programacion',
       precio: 75,
       oferta: false,
+      cantidad: 0,
     },
 
     {
@@ -40,6 +42,7 @@ export class BookListComponent implements OnInit {
       materia: 'TMC',
       precio: 90,
       oferta: false,
+      cantidad: 0,
     },
 
     {
@@ -50,12 +53,29 @@ export class BookListComponent implements OnInit {
       materia: 'TIO',
       precio: 85,
       oferta: false,
+      cantidad: 0,
     }
   ];
 
   constructor() { }
 
   ngOnInit(): void {
+  }
+
+  masCantidad(book: Book): void {
+    if (book.cantidad < 5){
+    book.cantidad++;
+    }
+  }
+
+  menosCantidad(book: Book): void {
+    if (book.cantidad > 0){
+    book.cantidad--;
+    }
+  }
+
+  cambioCantidad(event, book: Book): void {
+    event.preventDefaul();
   }
 
 }

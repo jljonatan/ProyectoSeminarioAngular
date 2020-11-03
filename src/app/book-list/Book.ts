@@ -6,4 +6,5 @@ export interface Book {
     materia: string;
     precio: number;
     oferta: boolean;
+    cantidad: number;
 }
