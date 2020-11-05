@@ -24,7 +24,7 @@
             <td>{{book.precio | currency}}</td>
             <td>
                 <button type="button" class="btn btn-success btn-sm" (click)="menosCantidad(book)">-</button>
-                <input type="text" [(ngModel)]="book.cantidad" (keyup)="cambioCantidad($event, book)">
+                <input type="text" class="input" [(ngModel)]="book.cantidad" (keyup)="cambioCantidad($event, book)">
                 <button type="button" class="btn btn-success btn-sm" (click)="masCantidad(book)">+</button>
             </td>
         </tr>

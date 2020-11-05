@@ -75,6 +75,7 @@ export class BookListComponent implements OnInit {
   }
 
   cambioCantidad(event, book: Book): void {
+    // hay que modificar esto...
     event.preventDefaul();
   }
 

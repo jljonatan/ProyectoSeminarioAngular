@@ -7,13 +7,17 @@ import { BookListComponent } from './book-list/book-list.component';
 import { ShopListComponent } from './shop-list/shop-list.component';
 
 import { FormsModule } from '@angular/forms';
+import { BookstoreHomeComponent } from './bookstore-home/bookstore-home.component';
+import { BookstoreAboutComponent } from './bookstore-about/bookstore-about.component';
 
 
 @NgModule({
   declarations: [
     AppComponent,
     BookListComponent,
-    ShopListComponent
+    ShopListComponent,
+    BookstoreHomeComponent,
+    BookstoreAboutComponent,
   ],
   imports: [
     BrowserModule,
