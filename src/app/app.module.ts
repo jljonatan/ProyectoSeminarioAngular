@@ -9,6 +9,7 @@ import { ShopListComponent } from './shop-list/shop-list.component';
 import { FormsModule } from '@angular/forms';
 import { BookstoreHomeComponent } from './bookstore-home/bookstore-home.component';
 import { BookstoreAboutComponent } from './bookstore-about/bookstore-about.component';
+import { InputMinusnumberplusComponent } from './input-minusnumberplus/input-minusnumberplus.component';
 
 
 @NgModule({
@@ -18,6 +19,7 @@ import { BookstoreAboutComponent } from './bookstore-about/bookstore-about.compo
     ShopListComponent,
     BookstoreHomeComponent,
     BookstoreAboutComponent,
+    InputMinusnumberplusComponent,
   ],
   imports: [
     BrowserModule,

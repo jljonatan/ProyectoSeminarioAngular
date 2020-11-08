@@ -1,0 +1,5 @@
+<div>
+    <button type="button" class="btn btn-success btn-sm" (click)="menosCantidad()">-</button>
+    <input type="text" [(ngModel)]="cantidad" (keyup)="cambioCantidad($event)">
+    <button type="button" class="btn btn-success btn-sm" (click)="masCantidad()">+</button>
+</div>

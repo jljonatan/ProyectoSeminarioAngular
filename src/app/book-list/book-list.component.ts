@@ -10,6 +10,8 @@ export class BookListComponent implements OnInit {
 
   ofertaInvierno = true;
 
+  stockLibros = 5;
+
   books: Book [] = [
 
     {
@@ -60,23 +62,6 @@ export class BookListComponent implements OnInit {
   constructor() { }
 
   ngOnInit(): void {
-  }
-
-  masCantidad(book: Book): void {
-    if (book.cantidad < 5){
-    book.cantidad++;
-    }
-  }
-
-  menosCantidad(book: Book): void {
-    if (book.cantidad > 0){
-    book.cantidad--;
-    }
-  }
-
-  cambioCantidad(event, book: Book): void {
-    // hay que modificar esto...
-    event.preventDefaul();
   }
 
 }

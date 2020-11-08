@@ -5,28 +5,24 @@
 <table class="table table-bordered">
     <thead class="thead-dark">
         <tr>
-            <th scope="col">imagen</th>
-            <th scope="col">tipo</th>
-            <th scope="col">titulo</th>
-            <th scope="col">autor</th>
-            <th scope="col">materia</th>
-            <th scope="col">precio</th>
-            <th scope="col">comprar</th>
+            <th>imagen</th>
+            <th>tipo</th>
+            <th>titulo</th>
+            <th>autor</th>
+            <th>materia</th>
+            <th>precio</th>
+            <th>comprar</th>
         </tr>
     </thead>
     <tbody>
         <tr *ngFor="let book of books" [ngClass]="{'oferta': book.oferta}">
-            <th scope="row"><img width="80" [src]="book.imagen" [alt]="book.imagen"></th>
+            <th><img width="80" [src]="book.imagen" [alt]="book.imagen"></th>
             <td>{{book.tipo}}</td>
             <td>{{book.titulo}}</td>
             <td>{{book.autor}}</td>
             <td>{{book.materia}}</td>
             <td>{{book.precio | currency}}</td>
-            <td>
-                <button type="button" class="btn btn-success btn-sm" (click)="menosCantidad(book)">-</button>
-                <input type="text" class="input" [(ngModel)]="book.cantidad" (keyup)="cambioCantidad($event, book)">
-                <button type="button" class="btn btn-success btn-sm" (click)="masCantidad(book)">+</button>
-            </td>
+            <td><app-input-minusnumberplus [(cantidad)]="book.cantidad" [max]="stockLibros"></app-input-minusnumberplus></td>
         </tr>
     </tbody>
 </table>
