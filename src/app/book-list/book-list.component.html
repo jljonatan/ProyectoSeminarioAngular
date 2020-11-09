@@ -1,35 +1,42 @@
-<h1>lista de libros</h1>
+<h1>Lista de libros</h1>
 
-<h2 *ngIf="ofertaInvierno== true">ofertas de invierno (libros resaltados)</h2>
+<ul class="list-group text-center text-uppercase" *ngFor="let oferta of ofertas">
+    <li class="list-group-item list-group-item-success" *ngIf="oferta.spring">ofertas de primavera resaltadas</li>
+    <li class="list-group-item list-group-item-success" *ngIf="oferta.summer">ofertas de verano resaltadas</li>
+    <li class="list-group-item list-group-item-success" *ngIf="oferta.fall">ofertas de otoño resaltadas</li>
+    <li class="list-group-item list-group-item-success" *ngIf="oferta.winter">ofertas de invierno resaltadas</li>
+</ul>
 
-<table class="table table-bordered">
+<table class="table table-bordered table-hover text-center text-capitalize font-weight-bold">
     <thead class="thead-dark">
         <tr>
-            <th>imagen</th>
-            <th>tipo</th>
-            <th>titulo</th>
-            <th>autor</th>
-            <th>materia</th>
-            <th>precio</th>
-            <th>cantidad</th>
-            <th>comprar</th>
+            <th scope="col">imagen</th>
+            <th scope="col">tipo</th>
+            <th scope="col">titulo</th>
+            <th scope="col">autor</th>
+            <th scope="col">materia</th>
+            <th scope="col">precio</th>
+            <th scope="col">cantidad*</th>
+            <th scope="col">comprar</th>
         </tr>
     </thead>
     <tbody>
         <tr *ngFor="let book of books" [ngClass]="{'oferta': book.oferta}">
-            <th><img width="80" [src]="book.imagen" [alt]="book.imagen"></th>
+            <th scope="row"><img width="80" [src]="book.imagen" [alt]="book.imagen"></th>
             <td>{{book.tipo}}</td>
             <td>{{book.titulo}}</td>
             <td>{{book.autor}}</td>
             <td>{{book.materia}}</td>
-            <td>{{book.precio | currency}} <span class="badge badge-danger" *ngIf="book.stock==0">SIN STOCK</span></td>
+            <td>{{book.precio | currency}}</td>
             <td>
+                <span class="badge badge-danger" *ngIf="book.stock==0">SIN STOCK</span>
                 <app-input-minusnumberplus [(cantidad)]="book.cantidad" [maximo]="book.stock" *ngIf="book.stock"></app-input-minusnumberplus>
             </td>
             <td>
-                <button class="btn btn-success btn-sm" (click)="agregarEnShopList(book)">agregar</button>
+                <span class="badge badge-danger" *ngIf="book.stock==0">SIN STOCK</span>
+                <button class="btn btn-success btn-sm text-capitalize" *ngIf="book.stock" (click)="agregarEnShopList(book)">agregar</button>
             </td>
         </tr>
     </tbody>
 </table>
-<p>Hay un limite de compra de 5 unidades por libro en este momento, disculpe las molestias.</p>
+<p class="text-uppercase font-weight-bold">*Hay un limite de compra de 5 unidades por libro en este momento, disculpe las molestias.</p>

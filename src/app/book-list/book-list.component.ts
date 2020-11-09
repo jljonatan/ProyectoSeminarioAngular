@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { BookShopService } from '../book-shop.service';
 import { Book } from './Book';
+import { Oferta } from './Oferta';
 
 @Component({
   selector: 'app-book-list',
@@ -9,7 +10,15 @@ import { Book } from './Book';
 })
 export class BookListComponent implements OnInit {
 
-  ofertaInvierno = true;
+  ofertas: Oferta [] = [
+
+    {
+      spring: false,
+      summer: false,
+      fall: false,
+      winter: true,
+    }
+  ];
 
   books: Book [] = [
 
@@ -22,7 +31,7 @@ export class BookListComponent implements OnInit {
       precio: 50,
       oferta: true,
       cantidad: 0,
-      stock: 5,
+      stock: 0,
     },
 
     {
@@ -44,7 +53,7 @@ export class BookListComponent implements OnInit {
       autor: 'Mario Rodriguez',
       materia: 'TMC',
       precio: 90,
-      oferta: false,
+      oferta: true,
       cantidad: 0,
       stock: 5,
     },
