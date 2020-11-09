@@ -1,4 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { Observable } from 'rxjs';
+import { Book } from '../book-list/Book';
+import { BookShopService } from '../book-shop.service';
 
 @Component({
   selector: 'app-shop-list',
@@ -7,7 +10,12 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ShopListComponent implements OnInit {
 
-  constructor() { }
+  listaDeCompras$: Observable <Book[]>;
+
+  constructor(private shop: BookShopService) {
+
+    this.listaDeCompras$ = shop.listaDeCompras.asObservable();
+  }
 
   ngOnInit(): void {
   }

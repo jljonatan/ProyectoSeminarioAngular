@@ -7,4 +7,5 @@ export interface Book {
     precio: number;
     oferta: boolean;
     cantidad: number;
+    stock: number;
 }

@@ -11,6 +11,7 @@
             <th>autor</th>
             <th>materia</th>
             <th>precio</th>
+            <th>cantidad</th>
             <th>comprar</th>
         </tr>
     </thead>
@@ -21,8 +22,13 @@
             <td>{{book.titulo}}</td>
             <td>{{book.autor}}</td>
             <td>{{book.materia}}</td>
-            <td>{{book.precio | currency}}</td>
-            <td><app-input-minusnumberplus [(cantidad)]="book.cantidad" [max]="stockLibros"></app-input-minusnumberplus></td>
+            <td>{{book.precio | currency}} <span class="badge badge-danger" *ngIf="book.stock==0">SIN STOCK</span></td>
+            <td>
+                <app-input-minusnumberplus [(cantidad)]="book.cantidad" [maximo]="book.stock" *ngIf="book.stock"></app-input-minusnumberplus>
+            </td>
+            <td>
+                <button class="btn btn-success btn-sm" (click)="agregarEnShopList(book)">agregar</button>
+            </td>
         </tr>
     </tbody>
 </table>

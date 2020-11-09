@@ -14,7 +14,7 @@ export class InputMinusnumberplusComponent implements OnInit {
   cantidad: number;
 
   @Input()
-  max: number;
+  maximo: number;
 
   @Output()
   cantidadChange: EventEmitter<number> = new EventEmitter<number>();
@@ -23,7 +23,7 @@ export class InputMinusnumberplusComponent implements OnInit {
   }
 
   masCantidad(): void {
-    if (this.cantidad < this.max) {
+    if (this.cantidad < this.maximo) {
     this.cantidad++;
     this.cantidadChange.emit(this.cantidad);
     }

@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { BookShopService } from '../book-shop.service';
 import { Book } from './Book';
 
 @Component({
@@ -9,8 +10,6 @@ import { Book } from './Book';
 export class BookListComponent implements OnInit {
 
   ofertaInvierno = true;
-
-  stockLibros = 5;
 
   books: Book [] = [
 
@@ -23,6 +22,7 @@ export class BookListComponent implements OnInit {
       precio: 50,
       oferta: true,
       cantidad: 0,
+      stock: 5,
     },
 
     {
@@ -34,6 +34,7 @@ export class BookListComponent implements OnInit {
       precio: 75,
       oferta: false,
       cantidad: 0,
+      stock: 5,
     },
 
     {
@@ -45,6 +46,7 @@ export class BookListComponent implements OnInit {
       precio: 90,
       oferta: false,
       cantidad: 0,
+      stock: 5,
     },
 
     {
@@ -56,12 +58,19 @@ export class BookListComponent implements OnInit {
       precio: 85,
       oferta: false,
       cantidad: 0,
+      stock: 5,
     }
   ];
 
-  constructor() { }
+  constructor(private shop: BookShopService) {  }
 
   ngOnInit(): void {
+  }
+
+  agregarEnShopList(book): void {
+    this.shop.agregarEnShopList(book);
+    book.stock -= book.cantidad;
+    book.cantidad = 0;
   }
 
 }
