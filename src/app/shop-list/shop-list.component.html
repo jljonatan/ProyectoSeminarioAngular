@@ -1,5 +1,22 @@
-<h1>carro de compras...</h1>
+<h1>Carro de compras...</h1>
 
-<ul>
-    <li *ngFor="let book of listaDeCompras$ | async">{{book.titulo}}: {{book.cantidad}}</li>
-</ul>
+<table class="table table-bordered table-hover table-sm text-center text-capitalize">
+    <thead class="thead-dark">
+        <tr>
+            <th scope="col">titulo</th>
+            <th scope="col">precio</th>
+            <th scope="col">cantidad</th>
+            <th scope="col">total</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let book of listaDeCompras$ | async">
+            <th scope="row">{{book.titulo}}</th>
+            <td>{{book.precio | currency}}</td>
+            <td>{{book.cantidad}}</td>
+            <td>{{book.precio*book.cantidad | currency}}</td>
+        </tr>
+    </tbody>
+</table>
+
+<button type="button" class="btn btn-success text-capitalize btn-lg" disabled>comprar todo</button>

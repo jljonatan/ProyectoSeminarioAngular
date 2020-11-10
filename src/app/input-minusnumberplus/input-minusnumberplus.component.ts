@@ -19,20 +19,32 @@ export class InputMinusnumberplusComponent implements OnInit {
   @Output()
   cantidadChange: EventEmitter<number> = new EventEmitter<number>();
 
+  /**
+   * crear mensaje de alerta sin utilizar el "alert()"
+   */
+  // @Output()
+  // maximoAlcanzado: EventEmitter<string> = new EventEmitter<string>();
+
   ngOnInit(): void {
   }
 
   masCantidad(): void {
     if (this.cantidad < this.maximo) {
-    this.cantidad++;
-    this.cantidadChange.emit(this.cantidad);
+      this.cantidad++;
+      this.cantidadChange.emit(this.cantidad);
     }
+    /**
+     * crear mensaje de alerta sin utilizar el "alert()"
+     */
+    // else {
+    //   this.maximoAlcanzado.emit();
+    // }
   }
 
   menosCantidad(): void {
     if (this.cantidad > 0){
-    this.cantidad--;
-    this.cantidadChange.emit(this.cantidad);
+      this.cantidad--;
+      this.cantidadChange.emit(this.cantidad);
     }
   }
 

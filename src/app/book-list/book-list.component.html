@@ -7,6 +7,14 @@
     <li class="list-group-item list-group-item-success" *ngIf="oferta.winter">ofertas de invierno resaltadas</li>
 </ul>
 
+<!-- para usar en el mensaje de alerta -->
+<!-- <div class="alert alert-warning alert-dismissible fade show text-center" role="alert">
+    <strong>Se alcanzo el maximo stock...</strong>
+    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+        <span aria-hidden="true">&times;</span>
+    </button>
+</div> -->
+
 <table class="table table-bordered table-hover text-center text-capitalize font-weight-bold">
     <thead class="thead-dark">
         <tr>
@@ -31,12 +39,15 @@
             <td>
                 <span class="badge badge-danger" *ngIf="book.stock==0">SIN STOCK</span>
                 <app-input-minusnumberplus [(cantidad)]="book.cantidad" [maximo]="book.stock" *ngIf="book.stock"></app-input-minusnumberplus>
+                    <!-- (maximoAlcanzado)="maximoAlcanzado($event)" (esto va dentro del tag app-input-minusnumberplus) -->
             </td>
             <td>
                 <span class="badge badge-danger" *ngIf="book.stock==0">SIN STOCK</span>
-                <button class="btn btn-success btn-sm text-capitalize" *ngIf="book.stock" (click)="agregarEnShopList(book)">agregar</button>
+                <button class="btn btn-success btn-sm text-capitalize" *ngIf="book.stock"
+                    (click)="agregarEnShopList(book)">agregar</button>
             </td>
         </tr>
     </tbody>
 </table>
-<p class="text-uppercase font-weight-bold">*Hay un limite de compra de 5 unidades por libro en este momento, disculpe las molestias.</p>
+<p class="text-uppercase font-weight-bold">*Hay un limite de compra de 5 unidades por libro en este momento, disculpe
+    las molestias.</p>

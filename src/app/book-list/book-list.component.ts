@@ -82,4 +82,11 @@ export class BookListComponent implements OnInit {
     book.cantidad = 0;
   }
 
+  /**
+   * crear mensaje de alerta sin utilizar el "alert()"
+   */
+  // maximoAlcanzado(): void {
+  //   alert('maximo alcanzado');
+  // }
+
 }
